@@ -1,0 +1,22 @@
+{
+  "app": {
+    "background": {
+      "scripts": [ "background.js" ]
+    }
+  },
+
+  "manifest_version": 2,
+  "name": "BBC micro:bit companion for chrome",
+  "version": "1.0",
+
+  "description": "This addon re-routes the micro:bit's serial output onto touchdevelop.com",
+
+  "permissions": [
+    "serial",
+    "usb"
+  ],
+
+  "externally_connectable": {
+    "matches": [ "https://*.microbit.co.uk/*", "*://localhost/*" ]
+  }
+}
