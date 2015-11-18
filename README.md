@@ -12,7 +12,7 @@ platforms with Chrome 46.
 
 # Sample page
 The `demo.html` webpage goes along with the
-[https://github.com/Microsoft/microbit-touchdevelop/blob/master/examples/tcs34725.cpp]
+https://github.com/Microsoft/microbit-touchdevelop/blob/master/examples/tcs34725.cpp
 program. Run `http-server` from this directory, then visit
-[http://localhost:8080/demo.html] (keep in mind that pages served from `file://`
-cannot open ports).
+http://localhost:8080/demo.html
+(keep in mind that pages served from `file://` cannot open ports).
