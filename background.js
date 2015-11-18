@@ -1,14 +1,15 @@
 var microbitIds = [];
 var ports = [];
 
-function onReceive(data) {
+function onReceive(data, id) {
   ports.forEach(function (port) {
     var view = new DataView(data);
     var decoder = new TextDecoder("utf-8");
     var decodedString = decoder.decode(view);
     port.postMessage({
       type: "serial",
-      data: decodedString
+      data: decodedString,
+      id: id,
     });
   });
 }
@@ -24,7 +25,7 @@ function main() {
   });
   chrome.serial.onReceive.addListener(function (info) {
     if (microbitIds.indexOf(info.connectionId) >= 0)
-      onReceive(info.data);
+      onReceive(info.data, info.connectionId);
   });
   chrome.serial.getDevices(function (serialPorts) {
     serialPorts.forEach(function (serialPort) {
