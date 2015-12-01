@@ -6,10 +6,16 @@
   },
 
   "manifest_version": 2,
-  "name": "BBC micro:bit companion for chrome",
+  "name": "Serial console for BBC micro:bit",
   "version": "1.0",
+  "author": "Microsoft Corporation",
+  "short_name": "micro:bit serial",
 
-  "description": "This addon re-routes the micro:bit's serial output onto touchdevelop.com",
+  "description": "This extension re-routes the BBC micro:bit's serial output to Chrome.",
+  "icons": {
+    "48": "logo48.png",
+    "128": "logo128.png"
+  },
 
   "permissions": [
     "serial",
@@ -17,6 +23,6 @@
   ],
 
   "externally_connectable": {
-    "matches": [ "https://*.microbit.co.uk/*", "*://localhost/*" ]
+    "matches": [ "https://*.microbit.co.uk/*", "https://*.touchdevelop.com", "*://localhost/*" ]
   }
 }
