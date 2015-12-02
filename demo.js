@@ -12,7 +12,7 @@ function updateColor(r, g, b, c) {
 }
 
 var buf = "";
-var port = chrome.runtime.connect("jmockekaclnoghdblhiogkkhadjmdkin", { name: "micro:bit" });
+var port = chrome.runtime.connect("jmockekaclnoghdblhiogkkhadjmdkin", { name: "touchdevelop" });
 port.onMessage.addListener(function (msg) {
   if (msg.type == "serial") {
     buf += msg.data;

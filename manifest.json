@@ -6,12 +6,12 @@
   },
 
   "manifest_version": 2,
-  "name": "Serial console for BBC micro:bit",
-  "version": "1.0",
-  "author": "Microsoft Corporation",
-  "short_name": "micro:bit serial",
+  "name": "Serial console for Microsoft Touch Develop",
+  "version": "0.1",
+  "author": "Microsoft",
+  "short_name": "touchdevelop serial",
 
-  "description": "This extension re-routes the BBC micro:bit's serial output to Chrome.",
+  "description": "This extension re-routes the serial output to Microsoft Touch Develop.",
   "icons": {
     "48": "logo48.png",
     "128": "logo128.png"
