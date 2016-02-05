@@ -7,8 +7,7 @@ See [developer.chrome.com](https://developer.chrome.com/extensions/getstarted#un
 for instructions on how to install the local version into your chrome browser.
 
 # Requirements
-You need Chrome 48 (Canary) for this to work on Windows. This may work on other
-platforms with Chrome 46.
+* Chrome 48 or later.
 
 # Sample page
 The `demo.html` webpage goes along with the
