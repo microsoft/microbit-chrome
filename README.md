@@ -1,5 +1,6 @@
 # microbit-chrome
-Prototype chrome addon that exposes a device serial output to webpages.
+Prototype chrome addon that exposes the micro:bit's serial output to webpages. 
+* watch the [demo video](https://vimeo.com/146207766)
 
 # Installation
 See [developer.chrome.com](https://developer.chrome.com/extensions/getstarted#unpacked)
