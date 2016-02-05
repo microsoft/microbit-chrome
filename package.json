@@ -1,6 +1,7 @@
 {
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "latest",
+    "http-server": "latest"
   },
   "dependencies": {
     "typings": "latest"
