@@ -15,3 +15,12 @@ https://github.com/Microsoft/microbit-touchdevelop/blob/master/examples/tcs34725
 program. Run `http-server` from this directory, then visit
 http://localhost:8080/demo.html
 (keep in mind that pages served from `file://` cannot open ports).
+
+# Building
+
+Open a command prompt and run the following commands.
+
+````
+npm install
+typings update
+````
