@@ -1,28 +1,39 @@
+///<reference path='typings/browser.d.ts'/>
 // A list of: {
 //   id: number;
 //   path: string;
 // } where [id] is the [connectionId] (internal to Chrome) and [path] is the
 // OS' name for the device (e.g. "COM4").
-var connections = [];
+interface Connection {
+    id:string;
+    path:string;
+}
+var connections : Connection[] = [];
 
 // A list of "ports", i.e. connected clients (such as web pages). Multiple web
 // pages can connect to our service: they all receive the same data.
 var ports = [];
 
-function byPath(path) {
-  return connections.filter(function (x) { return x.path == path; });
+interface Message {
+    type:string;
+    data:string;
+    id:string;
 }
 
-function byId(id) {
-  return connections.filter(function (x) { return x.id == id; });
+function byPath(path : string) : Connection[] {
+  return connections.filter((x) => x.path == path);
 }
 
-function onReceive(data, id) {
+function byId(id : string) : Connection[] {
+  return connections.filter((x) => x.id == id);
+}
+
+function onReceive(data, id: string) {
   ports.forEach(function (port) {
     var view = new DataView(data);
     var decoder = new TextDecoder("utf-8");
     var decodedString = decoder.decode(view);
-    port.postMessage({
+    port.postMessage(<Message>{
       type: "serial",
       data: decodedString,
       id: id,
