@@ -29,16 +29,16 @@ function byId(id : string) : Connection[] {
 }
 
 function onReceive(data, id: string) {
-  ports.forEach(function (port) {
+    if (ports.length == 0) return;
+
     var view = new DataView(data);
     var decoder = new TextDecoder("utf-8");
     var decodedString = decoder.decode(view);
-    port.postMessage(<Message>{
+    ports.forEach(port => port.postMessage(<Message>{
       type: "serial",
       data: decodedString,
       id: id,
-    });
-  });
+    }));
 }
 
 function findNewDevices() {
@@ -48,13 +48,13 @@ function findNewDevices() {
           serialPort.displayName == "mbed Serial Port")
       {
         chrome.serial.connect(serialPort.path, { bitrate: 115200 }, function (info) {
-          // In case the [connect] operation takes more than five seconds...
-          if (byPath(serialPort.path).length == 0)
-            connections.push({
-              id: info.connectionId,
-              path: serialPort.path
-            });
-        });
+        // In case the [connect] operation takes more than five seconds...
+        if (info && byPath(serialPort.path).length == 0)
+                connections.push({
+                id: info.connectionId,
+                path: serialPort.path
+                });
+        });              
       }
     });
   });
@@ -63,7 +63,7 @@ function findNewDevices() {
 function main() {
   // Register new clients in the [ports] global variable.
   chrome.runtime.onConnectExternal.addListener(function (port) {
-    if (port.name == "touchdevelop") {
+    if (/^(micro:bit|touchdevelop)$/.test(port.name)) {
       ports.push(port);
       port.onDisconnect.addListener(function () {
         ports = ports.filter(function (x) { return x != port });
@@ -82,7 +82,7 @@ function main() {
   // connection object from the [connections] global variable.
   chrome.serial.onReceiveError.addListener(function (info) {
     if (info.error == "system_error" || info.error == "disconnected" || info.error == "device_lost")
-      connections = connections.filter(function (x) { return x.id != info.connectionId; });
+      connections = connections.filter((x) => x.id != info.connectionId);
   });
 
   // Probe serial connections at regular intervals. In case we find an mbed port
