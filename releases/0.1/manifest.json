@@ -1,0 +1,28 @@
+{
+  "app": {
+    "background": {
+      "scripts": [ "background.js" ]
+    }
+  },
+
+  "manifest_version": 2,
+  "name": "Extension for BBC micro:bit and Google Chrome",
+  "version": "0.1",
+  "author": "Microsoft",
+  "short_name": "Extension for BBC micro:bit and Google Chrome",
+
+  "description": "Extension for BBC micro:bit and Google Chrome.",
+  "icons": {
+    "48": "logo48.png",
+    "128": "logo128.png"
+  },
+
+  "permissions": [
+    "serial",
+    "usb"
+  ],
+
+  "externally_connectable": {
+    "matches": [ "https://*.microbit.co.uk/*", "https://*.touchdevelop.com/*", "*://localhost/*" ]
+  }
+}
