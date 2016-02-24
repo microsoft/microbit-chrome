@@ -63,7 +63,7 @@ function findNewDevices() {
 function main() {
   // Register new clients in the [ports] global variable.
   chrome.runtime.onConnectExternal.addListener(function (port) {
-    if (/^(micro:bit|touchdevelop)$/.test(port.name)) {
+    if (/^(micro:bit|touchdevelop|yelm)$/.test(port.name)) {
       ports.push(port);
       port.onDisconnect.addListener(function () {
         ports = ports.filter(function (x) { return x != port });
