@@ -87,7 +87,7 @@ function main() {
 
   // Probe serial connections at regular intervals. In case we find an mbed port
   // we haven't yet connected to, connect to it.
-  setInterval(findNewDevices, 5000);
+  setInterval(findNewDevices, 4000);
   findNewDevices();
 }
 
