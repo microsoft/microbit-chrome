@@ -34,6 +34,7 @@ function onReceive(data, id: string) {
     var view = new DataView(data);
     var decoder = new TextDecoder("utf-8");
     var decodedString = decoder.decode(view);
+
     ports.forEach(port => port.postMessage(<Message>{
       type: "serial",
       data: decodedString,
@@ -41,11 +42,21 @@ function onReceive(data, id: string) {
     }));
 }
 
+function isMicrobitOnMac(serialPort) {
+  return (serialPort.displayName == "MBED CMSIS_DAP" 
+    && serialPort.path.indexOf("/dev/tty") == 0);
+}
+function isMicrobitOnWindows(serialPort) {
+  return serialPort.displayName == "mbed Serial Port";
+}
+function isMicrobit(serialPort) {
+  return isMicrobitOnWindows(serialPort) || isMicrobitOnMac(serialPort)
+ }
+
 function findNewDevices() {
   chrome.serial.getDevices(function (serialPorts) {
     serialPorts.forEach(function (serialPort) {
-      if (byPath(serialPort.path).length == 0 &&
-          serialPort.displayName == "mbed Serial Port")
+      if (byPath(serialPort.path).length == 0 && isMicrobit(serialPort))
       {
         chrome.serial.connect(serialPort.path, { bitrate: 115200 }, function (info) {
         // In case the [connect] operation takes more than five seconds...
