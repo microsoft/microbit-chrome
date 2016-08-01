@@ -6,12 +6,12 @@
   },
 
   "manifest_version": 2,
-  "name": "Extension for BBC micro:bit",
-  "version": "0.6.0",
+  "name": "Extension for micro:bit",
+  "version": "0.7.0",
   "author": "Microsoft",
-  "short_name": "Extension for BBC micro:bit",
+  "short_name": "Extension for micro:bit",
 
-  "description": "This extension reads the serial output from connected BBC micro:bit.",
+  "description": "This extension reads the serial output from connected micro:bit(s).",
   "icons": {
     "48": "logo48.png",
     "128": "logo128.png"
