@@ -1,0 +1,28 @@
+{
+  "app": {
+    "background": {
+      "scripts": [ "background.js" ]
+    }
+  },
+
+  "manifest_version": 2,
+  "name": "Extension for micro:bit",
+  "version": "0.7.0",
+  "author": "Microsoft",
+  "short_name": "Extension for micro:bit",
+
+  "description": "This extension reads the serial output from connected micro:bit.",
+  "icons": {
+    "48": "logo48.png",
+    "128": "logo128.png"
+  },
+
+  "permissions": [
+    "serial",
+    "usb"
+  ],
+
+  "externally_connectable": {
+    "matches": [ "https://*.microbit.co.uk/*", "https://*.touchdevelop.com/*", "*://localhost/*", "https://*.pxt.io/*", "https://pxt.microbit.org/*" ]
+  }
+}

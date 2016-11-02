@@ -6,12 +6,14 @@
   },
 
   "manifest_version": 2,
-  "name": "Extension for micro:bit",
+  "name": "pxt.microbit.org",
   "version": "0.7.0",
-  "author": "Microsoft",
-  "short_name": "Extension for micro:bit",
+  "author": "Microsoft Corporation",
+  "short_name": "pxt.microbit.org",
 
-  "description": "This extension reads the serial output from connected micro:bit(s).",
+  "description": "Extension for https://pxt.microbit.org.",
+  "homepage_url": "https://pxt.microbit.org",
+  "offline_enabled": "true",
   "icons": {
     "48": "logo48.png",
     "128": "logo128.png"
@@ -23,6 +25,6 @@
   ],
 
   "externally_connectable": {
-    "matches": [ "https://*.microbit.co.uk/*", "https://*.touchdevelop.com/*", "*://localhost/*", "https://*.pxt.io/*", "https://codethemicrobit.com/*", "https://*.codethemicrobit.com/*" ]
+    "matches": [ "*://localhost/*", "https://pxt.microbit.org/*", "https://*.microbit.org/*" ]
   }
 }
